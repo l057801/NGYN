@@ -20,7 +20,7 @@ class Object3D():
         vertices = vertices @ self.render.projection.projectionMatrix
         vertices /= vertices[:,-1].reshape(-1,1)
         vertices[(vertices > 1) | (vertices < -1)] = 0
-        vertices = vertices @ self.render.projection.toScreenMatrix
+        vertices = vertices @ self.render.toScreenMatrix
         vertices = vertices[:, :2]
 
         for face in self.faces:
